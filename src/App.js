@@ -3,13 +3,24 @@ import React, { useState } from 'react'
 const App = () => {
   const data={name:"",email:""}
   const[inputData,setInputData]=useState(data)
-function handleData(){
-
+  const[flag,setFlag]=useState("")
+function handleData(e){
+setInputData({...inputData,[e.target.password]:e.target.value})
+console.log(inputData)
 }
-
+function handleSubmit(e){
+  e.preventDefault()
+  if(!inputData.onlineid || !inputData.password ){
+    alert("all oooils is mandeory")
+  }
+  else{
+    setFlag(true)}
+}
   return (
    
-  <div className="container">
+    <>
+    <pre>{(flag)?<h2>hello {inputData.password} you login successfully</h2>:""}</pre>
+  <div className="container" onSubmit={handleSubmit}>
       
       <div className="left-container" id="left-container">
       
@@ -58,7 +69,7 @@ function handleData(){
         </div>
       </div>
     </div>
-
+    </>
   
   )
 }
