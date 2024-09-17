@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
   const data={name:"",email:""}
   const[inputData,setInputData]=useState(data)
-  const[flag,setFlag]=useState("")
+  const[flag,setFlag]=useState(false)
+
+useEffect(()=>{
+  console.log("hjkshjk")
+},[flag])
+
 function handleData(e){
 setInputData({...inputData,[e.target.password]:e.target.value})
 console.log(inputData)
